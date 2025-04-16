@@ -9,6 +9,9 @@ mkdir -p build/linux/aarch64
 
 CMAKE_ARGS=()
 
+# Add CFLAG to disable "incompatible-pointer-types" warning
+CMAKE_ARGS+=("-DCMAKE_C_FLAGS=-Wno-incompatible-pointer-types")
+
 # CMake-level configuration
 CMAKE_ARGS+=("-DCMAKE_TOOLCHAIN_FILE=$PWD/cmake/aarch64.toolchain")
 CMAKE_ARGS+=("-DCMAKE_BUILD_TYPE=RelWithDebInfo")
